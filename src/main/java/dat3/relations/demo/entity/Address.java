@@ -26,6 +26,7 @@ public class Address {
 
   public void addPerson(Person person){
     persons.add(person);
+    person.setAddress(this);
   }
 
 
