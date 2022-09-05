@@ -29,6 +29,10 @@ public class Address {
     person.setAddress(this);
   }
 
+  public List<Person> getPersons(){
+    return persons;
+  }
+
 
   // Getters Setters
   public int getId() {
