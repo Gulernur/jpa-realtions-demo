@@ -1,9 +1,8 @@
 package dat3.relations.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Address {
@@ -21,7 +20,13 @@ public class Address {
 
   public Address() {}
 
+  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)  //Unidirectional relationship
+  //@JoinColumn(name = "address_id")
+  private List<Person> persons = new ArrayList<>();
 
+  public void addPerson(Person person){
+    persons.add(person);
+  }
 
 
   // Getters Setters

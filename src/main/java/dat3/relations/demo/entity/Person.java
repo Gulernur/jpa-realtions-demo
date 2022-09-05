@@ -1,18 +1,31 @@
 package dat3.relations.demo.entity;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@javax.persistence.Entity
+@javax.persistence.Entity (name="kunde")
 public class Person {
   @Id
+  @Column(name="brugernavn")
   private String username;
+  @Column(nullable = false, unique = true)
   private String email;
+  @Column(nullable = false, length = 80)
   private String password;
+  @ManyToOne(cascade = CascadeType.ALL) //Bidirectional
+  private Address address;
 
   public Person(String username, String email, String password) {
     this.username = username;
     this.email = email;
     this.password = password;
+  }
+
+  public Address getAddress() {
+    return address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
   }
 
   public Person() {
