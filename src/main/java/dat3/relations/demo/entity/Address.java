@@ -20,7 +20,7 @@ public class Address {
 
   public Address() {}
 
-  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)  //Unidirectional relationship
+  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)  //Unidirectional relationship
   //@JoinColumn(name = "address_id")
   private List<Person> persons = new ArrayList<>();
 
